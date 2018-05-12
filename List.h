@@ -28,15 +28,15 @@ template <typename type>
 class List
 {
 public:
-    LNode <type> *head = NULL;
-    LNode <type> *tail = NULL;
+    LNode <type> head ;
+    LNode <type> tail ;
      int nextIndex=0 ;
 
 
     LNode <type> *searchFor(int index)
     {
-        LNode <type> *tmp=head;
-        while(tmp!=tail) // czy będzie w stanie znaleźc ostatni ?
+        LNode <type> *tmp=head.back;
+        while(tmp!=&tail) // czy będzie w stanie znaleźc ostatni ?
         {
             if(tmp.index==index)
             {
@@ -56,8 +56,8 @@ public:
 
     List()
     {
-        head = NULL;
-        tail = NULL;
+        head.back = NULL;
+        tail.front = NULL;
         nextIndex=1;
     }
     bool add (type key )
@@ -69,17 +69,17 @@ public:
         newNode->index=this->nextIndex;
         this->nextIndex=this->nextIndex+1;
 
-        if (!head)
+        if (!head.back)
         {
-            head= newNode;
-            tail= newNode;
+            head.back= newNode;
+            tail.front= newNode;
 
             return true;
         }
         else
         {
-            LNode <type> *tmp = tail;
-            tail=newNode;
+            LNode <type> *tmp = tail.front;
+            tail.front=newNode;
             tmp->back=newNode;
             newNode->front=tmp;
 

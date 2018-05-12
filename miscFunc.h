@@ -12,8 +12,8 @@
 template <typename type>
 void show (List <type> list)
 {
-    LNode <type> *tmp=list.head;
-    while(tmp!=list.tail)
+    LNode <type> *tmp=list.head.back;
+    while(tmp != &list.tail)
     {
         cout << tmp->index << endl;
         tmp=tmp->back;
