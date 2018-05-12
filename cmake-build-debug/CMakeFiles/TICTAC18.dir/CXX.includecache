@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/resolution/CLionProjects/TICTAC18/List.h
+iostream
+-
+
+/home/resolution/CLionProjects/TICTAC18/Tree.h
+
+/home/resolution/CLionProjects/TICTAC18/main.cpp
+iostream
+-
+List.h
+/home/resolution/CLionProjects/TICTAC18/List.h
+miscFunc.h
+/home/resolution/CLionProjects/TICTAC18/miscFunc.h
+
+/home/resolution/CLionProjects/TICTAC18/miscFunc.h
+iostream
+-
+List.h
+/home/resolution/CLionProjects/TICTAC18/List.h
+Tree.h
+/home/resolution/CLionProjects/TICTAC18/Tree.h
+

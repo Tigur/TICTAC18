@@ -1,0 +1,3 @@
+/home/resolution/CLionProjects/TICTAC18/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/resolution/CLionProjects/TICTAC18/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/resolution/CLionProjects/TICTAC18/cmake-build-debug/CMakeFiles/TICTAC18.dir

@@ -1,0 +1,2 @@
+Options: 
+CMake: 3.7.1@/home/resolution/Dokumenty/paczki_direct/clion-2017.1 (2)/bin/cmake/bin/cmake
