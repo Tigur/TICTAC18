@@ -38,11 +38,11 @@ public:
         LNode <type> *tmp=head.back;
         while(tmp!=&tail) // czy będzie w stanie znaleźc ostatni ?
         {
-            if(tmp.index==index)
+            if(tmp->index==index)
             {
                 return tmp;
             }
-            tmp=tmp.back;
+            tmp=tmp->back;
         }
 
         cout << " KEY NOT FOUND " << endl;

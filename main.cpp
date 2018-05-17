@@ -18,6 +18,8 @@ int main()
 
     L.add(1);
 
+    L.del(3);
+
     show(L);
 
 }
