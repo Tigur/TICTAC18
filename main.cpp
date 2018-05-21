@@ -1,25 +1,16 @@
 #include <iostream>
+
+#include"Tree.h"
 #include"List.h"
 #include"miscFunc.h"
 using namespace std;
 
 int main()
 {
-    List <int> L ;
+//List <Tree> L ;
+Tree  game;
 
-    L.add(1);
-    L.add(1);
-
-    L.add(1);
-
-    L.add(1);
-
-    L.add(1);
-
-    L.add(1);
-
-    L.del(3);
-
-    show(L);
+    game.add();
+    return 0;
 
 }

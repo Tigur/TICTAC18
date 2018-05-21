@@ -13,7 +13,7 @@ template <typename type>
 void show (List <type> list)
 {
     LNode <type> *tmp=list.head.back;
-    while(tmp != &list.tail)
+    while(tmp->back != NULL)
     {
         cout << tmp->index << endl;
         tmp=tmp->back;

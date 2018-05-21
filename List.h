@@ -16,7 +16,7 @@ template <typename type>
 class LNode
 {
 public:
-    type key = 0;
+    type key ;
     LNode* front = NULL;
     LNode* back = NULL;
     int index ;  // nie przejmujemy się utylizacją numeracji w dużym stopniu.
@@ -25,7 +25,7 @@ public:
 
 
 template <typename type>
-class List
+class List // w kluczu wrzuce drzewo
 {
 public:
     LNode <type> head ;
@@ -73,6 +73,8 @@ public:
         {
             head.back= newNode;
             tail.front= newNode;
+            newNode->front=&head;
+            newNode->back=&tail;
 
             return true;
         }
@@ -82,6 +84,7 @@ public:
             tail.front=newNode;
             tmp->back=newNode;
             newNode->front=tmp;
+            newNode->back=&tail;
 
             return true;
         }
@@ -97,6 +100,14 @@ public:
         delete delNode;
 
 
+    }
+
+    type get(int getIndex) // zwraca odrazu klucz.
+    {
+        type got;
+      got = searchFor(getIndex)->key;
+
+        return got;
     }
 
 

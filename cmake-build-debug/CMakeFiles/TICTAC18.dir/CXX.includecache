@@ -10,11 +10,27 @@
 iostream
 -
 
+/home/resolution/CLionProjects/TICTAC18/Player.h
+defines.h
+/home/resolution/CLionProjects/TICTAC18/defines.h
+
 /home/resolution/CLionProjects/TICTAC18/Tree.h
+defines.h
+/home/resolution/CLionProjects/TICTAC18/defines.h
+Player.h
+/home/resolution/CLionProjects/TICTAC18/Player.h
+state.h
+/home/resolution/CLionProjects/TICTAC18/state.h
+List.h
+/home/resolution/CLionProjects/TICTAC18/List.h
+
+/home/resolution/CLionProjects/TICTAC18/defines.h
 
 /home/resolution/CLionProjects/TICTAC18/main.cpp
 iostream
 -
+Tree.h
+/home/resolution/CLionProjects/TICTAC18/Tree.h
 List.h
 /home/resolution/CLionProjects/TICTAC18/List.h
 miscFunc.h
@@ -27,4 +43,12 @@ List.h
 /home/resolution/CLionProjects/TICTAC18/List.h
 Tree.h
 /home/resolution/CLionProjects/TICTAC18/Tree.h
+
+/home/resolution/CLionProjects/TICTAC18/state.h
+Player.h
+/home/resolution/CLionProjects/TICTAC18/Player.h
+defines.h
+/home/resolution/CLionProjects/TICTAC18/defines.h
+iostream
+-
 
