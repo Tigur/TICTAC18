@@ -28,10 +28,12 @@ class Tree
     State board;
 public:
 
-    bool add()
+    Tree* add()
     {
         Tree *newTree= new Tree; // THIS to make working
         sons.add(newTree);
+
+        return newTree;
     }
 
     bool init(int n, int m, int chosen)
@@ -47,10 +49,55 @@ public:
             max.isHooman=true;
         }
 
-        board.graphBoard= new int[n][m];
+        board.graphBoard= new int*[n];
+        for(int i = 0; i < n; ++i)
+            board.graphBoard[i]=new int[m];
+
+        // init the game tree
+
+       long long int nm= n*m;
+        int move_num=0;
+
+        while (move_num!=nm)
+        {
+
+            for (int j = 0; j < n; ++j)
+            {
+                for (int k = 0; k < m; ++k)
+                {
+
+                }
+            }
+
+
+        }
+
+
 
         return true;
 
+    }
+    bool TreeInit(int n, int m, int depth)
+    {
+        long long int nm= n*m;
+        int move_num=0;
+
+       // while (move_num!=nm)
+       // {
+
+            for (int j = 0; j < n; ++j)
+            {
+                for (int k = 0; k < m; ++k)
+                {
+                    if(depth<nm && this->board.graphBoard[n][m]>0)
+                    this->add()->TreeInit(m,n,depth+1);
+                }
+            }
+
+
+       // }
+
+        return true;
     }
 
   //  bool add ()

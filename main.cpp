@@ -10,7 +10,8 @@ int main()
 //List <Tree> L ;
 Tree  game;
 
-    game.add();
+    //game.add();
+    Game
     return 0;
 
 }
