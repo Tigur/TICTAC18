@@ -28,12 +28,55 @@ class Tree
     State board;
 public:
 
+
+
+
+    bool assignState(int n, int m, State prevState, State *SonState, int sonIndex )
+    {
+        int counterOfFree=0;
+        for(int i=0;i<n;++i)
+        {
+            for(int j=0;j<m;++j)
+            {
+                if(!prevState->graphBoard[n][m])
+                    counterOfFree++;
+                    if(sonIndex==counterOfFree)
+                        SonState->graphBoard[n][m]=
+            }
+        }
+    }
     Tree* add()
     {
         Tree *newTree= new Tree; // THIS to make working
         sons.add(newTree);
+        newTree->father=this;
+        // copy the tables m n
+        // add next move ( bierzemy index syna na liście i na podstawie tego zaznaczamy jego ruch) ( Nowa funkcja do tego w board)
 
         return newTree;
+    }
+
+    bool TreeInit(int n, int m, int depth)
+    {
+        long long int nm= n*m;
+        int move_num=0;
+
+        // while (move_num!=nm)
+        // {
+
+        for (int j = 0; j < n; ++j)
+        {
+            for (int k = 0; k < m; ++k)
+            {
+                if(depth<nm && this->board.graphBoard[n][m]>0)
+                    this->add()->TreeInit(m,n,depth+1);
+            }
+        }
+
+
+        // }
+
+        return true;
     }
 
     bool init(int n, int m, int chosen)
@@ -50,57 +93,26 @@ public:
         }
 
         board.graphBoard= new int*[n];
-        for(int i = 0; i < n; ++i)
+        for(int i = 0; i <= n; ++i)
             board.graphBoard[i]=new int[m];
 
         // init the game tree
+        TreeInit(n,m,0);
 
-       long long int nm= n*m;
-        int move_num=0;
-
-        while (move_num!=nm)
-        {
-
-            for (int j = 0; j < n; ++j)
-            {
-                for (int k = 0; k < m; ++k)
-                {
-
-                }
-            }
-
-
-        }
 
 
 
         return true;
 
     }
-    bool TreeInit(int n, int m, int depth)
-    {
-        long long int nm= n*m;
-        int move_num=0;
-
-       // while (move_num!=nm)
-       // {
-
-            for (int j = 0; j < n; ++j)
-            {
-                for (int k = 0; k < m; ++k)
-                {
-                    if(depth<nm && this->board.graphBoard[n][m]>0)
-                    this->add()->TreeInit(m,n,depth+1);
-                }
-            }
 
 
-       // }
-
-        return true;
-    }
 
   //  bool add ()
+
+
+
+
 
 };
 

@@ -11,7 +11,8 @@ int main()
 Tree  game;
 
     //game.add();
-    Game
+    if(game.init(10,10,MIN))
+        cout << "PRAWDA" << endl;
     return 0;
 
 }

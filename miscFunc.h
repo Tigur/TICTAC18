@@ -20,5 +20,18 @@ void show (List <type> list)
 
     }
 }
+template <typename type>
+bool copy_table_twoD(type **board_one, type **board_two, int n, int m)
+{
+    for(int i=0;i<n;++i)
+    {
+        for (int j=0;j<m;++j)
+        {
+            board_one[n][m]=board_two[n][m];
+        }
+    }
+    return true;
+
+}
 
 #endif //TICTAC18_MISCFUNC_H

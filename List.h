@@ -60,7 +60,7 @@ public:
         tail.front = NULL;
         nextIndex=1;
     }
-    bool add (type key )
+    LNode* add (type key )
     {
 
 
@@ -76,7 +76,7 @@ public:
             newNode->front=&head;
             newNode->back=&tail;
 
-            return true;
+            return newNode;
         }
         else
         {
@@ -86,7 +86,7 @@ public:
             newNode->front=tmp;
             newNode->back=&tail;
 
-            return true;
+            return newNode;
         }
 
     }
