@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "defines.h"
 #include<iostream>
+#include "miscFunc.h"
 using namespace std;
 
 //template <typename type>
@@ -40,6 +41,16 @@ public:
         cout << "NO PLAYER FOUND" << endl;
 
         return false;
+    }
+    bool init(int n, int m)
+    {
+        graphBoard= new int*[n];
+        for(int i = 0; i <= n; ++i)
+            graphBoard[i]=new int[m];
+
+        FillWithZeros(n,m,graphBoard);
+
+
     }
 
 };

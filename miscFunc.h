@@ -20,6 +20,19 @@ void show (List <type> list)
 
     }
 }
+
+void show (int n, int m, int **table)
+{
+    for(int i=0;i<n;++i)
+    {
+        for (int j=0;j<m;++j)
+        {
+            cout << table[i][j] << endl;
+        }
+    }
+
+}
+
 template <typename type>
 bool copy_table_twoD(type **board_one, type **board_two, int n, int m)
 {
@@ -29,6 +42,17 @@ bool copy_table_twoD(type **board_one, type **board_two, int n, int m)
         {
             board_one[n][m]=board_two[n][m];
         }
+    }
+    return true;
+
+}
+template <typename type>
+bool FillWithZeros(int n, int m, type **table)
+{
+    for ( int i=0;i<n;++i)
+    {
+        for(int j=0;j<m;++j)
+        table[i][j]=0;
     }
     return true;
 

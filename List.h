@@ -60,7 +60,7 @@ public:
         tail.front = NULL;
         nextIndex=1;
     }
-    LNode* add (type key )
+    LNode <type>* add (type key )
     {
 
 
