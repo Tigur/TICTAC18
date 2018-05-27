@@ -32,25 +32,7 @@ public:
 
 
 
-    void assignState(int n, int m, State prevState, State *SonState, int sonIndex )
-    {
-        int counterOfFree=0;
-        for(int i=0;i<n;++i)
-        {
-            for(int j=0;j<m;++j)
-            {
-                if((prevState.graphBoard[n][m]==0)) // idk if it works
-                    counterOfFree++;
-                    if(sonIndex==counterOfFree)
-                    {
-                        if(min.nowPlaying)
-                            SonState->graphBoard[n][m] =2;
-                        if(max.nowPlaying)
-                            SonState->graphBoard[n][m]=1;
-                    }
-            }
-        }
-    }
+
     Tree* add()
     {
         Tree *newTree= new Tree; // THIS to make working
@@ -64,34 +46,60 @@ public:
         return newTree;
     }
 
+
+    Tree* AddIfPossible(int n, int m,  int sonIndex )
+    {
+        int counterOfFree=0;
+        for(int i=0;i<n;++i)
+        {
+            for(int j=0;j<m;++j)
+            {
+                if((board.graphBoard[i][j]==0)) // idk if it works
+                    counterOfFree++;
+                if(sonIndex==counterOfFree)
+                {
+                    Tree *newTree = add();
+                    newTree->board.init(n,m);
+                    copy_table_twoD(newTree->board.graphBoard, board.graphBoard, n, m);
+
+
+                    if(min.nowPlaying)
+                        newTree->board.graphBoard[i][j] =2;
+                    if(max.nowPlaying)
+                        newTree->board.graphBoard[i][j]=1;
+
+                    return newTree;
+                }
+            }
+        }
+        return 0;
+    }
+
+
     bool TreeInit(int n, int m, int depth)
     {
         long long int nm= n*m;
         int move_num=0;
 
-        // while (move_num!=nm)
-        // {
+
 
         for (int j = 0; j < n; ++j)
         {
             for (int k = 0; k < m; ++k)
             {
-                board.init(n,m);
+
 
                 if(depth%2)
                     min.nowPlaying=true;
                 else
                     max.nowPlaying=true;
 
-                if()
-                Tree *newTree=add();
-                if(depth<nm ) // trzeba to zmienić - nie mogę w init opierać sie na board. Mogę liczbowo zainicjalizować drzewo. W na każdej głębokości -1 liczba syn  ow
-                    newTree->TreeInit(m,n,depth+1);
+                Tree *newTree = AddIfPossible(n,m,sons.nextIndex);
+
+                if(depth<nm && newTree)
+                    newTree->TreeInit(n,m,depth+1);
             }
         }
-
-
-        // }
 
         return true;
     }
@@ -110,7 +118,7 @@ public:
         }
 
 
-      //  board.init(n,m);
+        board.init(n,m);
 /*
         board.graphBoard= new int*[n];
         for(int i = 0; i <= n; ++i)

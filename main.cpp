@@ -8,16 +8,29 @@ using namespace std;
 int main()
 {
 List <Tree*> L ;
-Tree  game;
-
+Tree  game, gamee, gama;
+/*
    // game.add();
-   // game.board.init(10,10);
+    gamee.board.init(10,10);
+    gama.board.init(10,10);
+    gamee.board.graphBoard[0][0]=1;
+    gamee.board.graphBoard[1][0]=1;
+    gamee.board.graphBoard[0][1]=1;
+    gamee.board.graphBoard[0][2]=1;
+    gamee.board.graphBoard[0][3]=1;
+
+    //show(10,10,gamee.board.graphBoard);
+    copy_table_twoD(gama.board.graphBoard, gamee.board.graphBoard,10,10);
+    show(10,10,gama.board.graphBoard);
 
 
   //  show(10,10,game.board.graphBoard);
 
     //game.add();
-    if(game.init(10,15,MIN))
+
+    */
+
+    if(game.init(5,5,MIN)) // jakaś pętla nieskończona jest.
         cout << "PRAWDA" << endl;
 
  cout <<    game.sons.get(1)->sons.get(1)->max.nowPlaying << endl;

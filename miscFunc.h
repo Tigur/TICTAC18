@@ -40,7 +40,7 @@ bool copy_table_twoD(type **board_one, type **board_two, int n, int m)
     {
         for (int j=0;j<m;++j)
         {
-            board_one[n][m]=board_two[n][m];
+            board_one[i][j]=board_two[i][j];
         }
     }
     return true;
