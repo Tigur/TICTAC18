@@ -32,7 +32,7 @@ public:
 
 
 
-    bool assignState(int n, int m, State prevState, State *SonState, int sonIndex )
+    void assignState(int n, int m, State prevState, State *SonState, int sonIndex )
     {
         int counterOfFree=0;
         for(int i=0;i<n;++i)
@@ -83,9 +83,9 @@ public:
                 else
                     max.nowPlaying=true;
 
-
+                if()
                 Tree *newTree=add();
-                if(depth<nm && this->board.graphBoard[n][m]==0) // trzeba to zmienić - nie mogę w init opierać sie na board. Mogę liczbowo zainicjalizować drzewo. W na każdej głębokości -1 liczba syn  ow
+                if(depth<nm ) // trzeba to zmienić - nie mogę w init opierać sie na board. Mogę liczbowo zainicjalizować drzewo. W na każdej głębokości -1 liczba syn  ow
                     newTree->TreeInit(m,n,depth+1);
             }
         }

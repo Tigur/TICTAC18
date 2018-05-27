@@ -20,7 +20,7 @@ Tree  game;
     if(game.init(10,15,MIN))
         cout << "PRAWDA" << endl;
 
-    game
+ cout <<    game.sons.get(1)->sons.get(1)->max.nowPlaying << endl;
     return 0;
 
 }
