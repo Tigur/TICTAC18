@@ -56,6 +56,12 @@ bool FillWithZeros(int n, int m, type **table)
     }
     return true;
 
+
+
+
 }
+
+
+bool WorthIt(Tree* decider, int value)
 
 #endif //TICTAC18_MISCFUNC_H

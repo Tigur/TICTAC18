@@ -110,6 +110,13 @@ public:
         return got;
     }
 
+    bool exist()
+    {
+        if(nextIndex==1)
+            return false;
+        if(nextIndex>1)
+            return true;
+    }
 
 
 

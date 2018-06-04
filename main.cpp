@@ -37,3 +37,14 @@ Tree  game, gamee, gama;
     return 0;
 
 }
+
+
+/*
+ * Ogólny leyout programu :
+ * 1. inicjalizujemy grę. ( mamy graczy, mamy planszę, pierwszą warstwę możliwych ruchów, )
+ * 2. puszczamy grę.
+ * 3. gracze wymieniają ruchy, AI przewiduje sytuacje, sprawdzamy wygrane
+ * 4. gra się kończy, gdy któryś z graczy będzie miał odpowiednią ilość swoich znaków w rzędzie
+ *
+ *
+ */

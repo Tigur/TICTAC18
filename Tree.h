@@ -18,18 +18,24 @@ class Tree
 {
     // lista wskaźników do synów ? LISTA SYNÓW POPROSTU.
     Tree* father=0;
+    Tree* root=0;
+public:
     int alfa = 0;
     int beta = 0; // optymalnia nan
     int value = 0; // to są szansę na wygraną MAX
-public:
+
     List <Tree*> sons;
 
     Player min;
     Player max;
     State board;
+    int current_depth=0;
 
 
-
+/*
+ *
+ * Tworzy nowego syna drzewa, uzywa listy.
+ */
 
 
 
@@ -39,9 +45,7 @@ public:
         sons.add(newTree);
         newTree->father=this;
 
-        // Initialize the table.
-        // copy the tables m n
-        // add next move ( bierzemy index syna na liście i na podstawie tego zaznaczamy jego ruch) ( Nowa funkcja do tego w board)
+
 
         return newTree;
     }
@@ -75,8 +79,19 @@ public:
         return 0;
     }
 
+    /*
+     * version 0.2
+     * Przewiduje następne "depth" ruchów i podejmuje decyzję. ( minimax ? )
+     * Może dodawać w tym celu nowe ruchy do mapy (board)
+     * jeżeli ruchy istnieją, to przewiduje tylko tyle ile jest potrzebne do osiągnięcia depth.
+     * sprawdza, czy sons.exist == true, jeżeli tak, to schodzi do pierwszego syna i sprawdza ponownie, aż dojdzie do depth lub braku synow.
+     * W tym momencie tworzy kolejną warstwę, na podstawie depth. Po czym zapuszcza minimax'a
+     *
+     *
+     */
 
-    bool TreeInit(int n, int m, int depth)
+
+    bool TreeInit(int n, int m, int depth, int max_depth)
     {
         long long int nm= n*m;
         int move_num=0;
@@ -103,6 +118,14 @@ public:
 
         return true;
     }
+
+    bool doForesight(int n, int m, int max_depth)
+    {
+        TreeInit(n,m,this->current_depth,max_depth);
+        //minimax outside
+
+    }
+
 
     bool init(int n, int m, int chosen)
     {
@@ -132,6 +155,14 @@ public:
 
         return true;
 
+    }
+
+    bool isFather()
+    {
+        if(this->sons.exist())
+            return true;
+        else
+            return false;
     }
 
 
