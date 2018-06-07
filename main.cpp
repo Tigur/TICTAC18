@@ -1,8 +1,10 @@
 #include <iostream>
 
+#include"defines.h"
 #include"Tree.h"
 #include"List.h"
 #include"miscFunc.h"
+
 using namespace std;
 
 int main()
@@ -30,17 +32,87 @@ Tree  game, gamee, gama;
 
     */
 
-    if(game.init(5,5,MIN)) // jakaś pętla nieskończona jest.
+    if(game.init(6,6,MIN, EASY)) // jakaś pętla nieskończona jest.
         cout << "PRAWDA" << endl;
 
  cout <<    game.sons.get(1)->sons.get(1)->max.nowPlaying << endl;
+
+
+/*
+ * Tu rozpoczynamy main :
+ * Najpierw pętla wyłączająca program
+ * pętla przerywająca grę z jakiegoś powodu
+ *
+ */
+
+    int board_size=0;
+    int difficulty=0;
+    int choose_your_sign=0;
+    bool with_human=false;
+    bool cpu_vs_cpu= false;
+    bool with_cpu=false;
+    int signal=0; // for checking the player will
+
+    while(signal!=EXIT)
+    {
+        /*
+         * tutaj będzie MENU
+         */
+
+        cout << "define the board_size,\n difficulty ( 1. EASY  2. MEDIUM  3. HARD) \n choose your sign (0. circle | 1.cross) \n USE 3 Digits ex. 3 3 1 " << endl;
+
+        cin >> board_size;
+        cin >> difficulty;
+        cin >> choose_your_sign;
+
+        cout << "\n Do you want to : \n 1. play vs cpu \n 2. play vs human \n 3. watch cpu vs cpu match" << endl;
+
+        int answer=0;
+        cin >> answer;
+
+
+
+
+        switch(answer)
+        {
+            case 1:
+                with_cpu=true;
+                break;
+
+            case 2:
+                with_human=true;
+                break;
+
+            case 3:
+                cpu_vs_cpu=true;
+                break;
+
+            default:
+                cerr << " NO SUCH OPTION" << endl;
+                break;
+
+        }
+
+
+
+        while(signal!=MENU)
+        {
+
+        }
+    }
+
+
+
+
+
     return 0;
 
 }
 
 
+
 /*
- * Ogólny leyout programu :
+ * Ogólny layout programu :
  * 1. inicjalizujemy grę. ( mamy graczy, mamy planszę, pierwszą warstwę możliwych ruchów, )
  * 2. puszczamy grę.
  * 3. gracze wymieniają ruchy, AI przewiduje sytuacje, sprawdzamy wygrane

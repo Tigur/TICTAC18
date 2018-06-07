@@ -111,8 +111,8 @@ public:
 
                 Tree *newTree = AddIfPossible(n,m,sons.nextIndex);
 
-                if(depth<nm && newTree)
-                    newTree->TreeInit(n,m,depth+1);
+                if(depth<max_depth && newTree)
+                    newTree->TreeInit(n,m,depth+1, max_depth);
             }
         }
 
@@ -127,7 +127,7 @@ public:
     }
 
 
-    bool init(int n, int m, int chosen)
+    bool init(int n, int m, int chosen, int difficulty)
     {
         min.playerId=MIN;
         max.playerId=MAX;
@@ -142,13 +142,14 @@ public:
 
 
         board.init(n,m);
+        max.nowPlaying=true;
 /*
         board.graphBoard= new int*[n];
         for(int i = 0; i <= n; ++i)
             board.graphBoard[i]=new int[m];
 */
         // init the game tree
-        TreeInit(n,m,0);
+        TreeInit(n,m,0,difficulty);
 
 
 
