@@ -18,7 +18,7 @@
  * 
  *
  */
-bool minimax(Tree* Node_of_move, int alfa, int beta)
+Tree* minimax(Tree* Node_of_move, int alfa, int beta)
 {
     /*
      *
@@ -29,6 +29,9 @@ bool minimax(Tree* Node_of_move, int alfa, int beta)
 
     for(int i=1;i<Node_of_move->sons.nextIndex;i++)
     {
+
+        Tree *potential_move=NULL;
+        Tree *best_move=NULL;
 
         // if pruning
         if (Node_of_move->max.nowPlaying)
@@ -50,7 +53,8 @@ bool minimax(Tree* Node_of_move, int alfa, int beta)
 
         if(Node_of_move->sons.get(i).isFather()) // If it's not a leaf
         {
-            int Minmax_result = minimax(Node_of_move->sons.get(i));
+            potential_move = minimax(Node_of_move->sons.get(i));
+            int Minmax_result = potential_move->value;
 
             if(Node_of_move->max.nowPlaying )
             {
@@ -58,6 +62,7 @@ bool minimax(Tree* Node_of_move, int alfa, int beta)
                 {
                     Node_of_move->value = Minmax_result;
                     alfa=Minmax_result;
+                    best_move=potential_move;
                 }
             }
             if(Node_of_move->min.nowPlaying )
@@ -66,6 +71,9 @@ bool minimax(Tree* Node_of_move, int alfa, int beta)
                 {
                     Node_of_move->value = Minmax_result;
                     beta=Minmax_result;
+                    best_move=potential_move;
+
+
                 }
             }
 
@@ -75,7 +83,10 @@ bool minimax(Tree* Node_of_move, int alfa, int beta)
             if(Node_of_move->min.nowPlaying)
             {
                 if(Node_of_move->sons.get(i)->value < Node_of_move->value)
-                    Node_of_move->value=Node_of_move->sons.get(i)->value;
+                {
+                    Node_of_move->value = Node_of_move->sons.get(i)->value;
+                    best_move=Node_of_move->sons.get(i);
+                }
 
 
             }
@@ -83,14 +94,21 @@ bool minimax(Tree* Node_of_move, int alfa, int beta)
             if(Node_of_move->min.nowPlaying)
             {
                 if(Node_of_move->sons.get(i)->value >  Node_of_move->value)
-                    Node_of_move->value=Node_of_move->sons.get(i)->value;
+                {
+                    Node_of_move->value = Node_of_move->sons.get(i)->value;
+                    best_move=Node_of_move->sons.get(i);
+                }
+
             }
         }
     }
-    return Node_of_move->value;
+    return Node_of_move;
 }
 /*
- * za każdym razzem, kiedy aktualizuję value, to aktualizuję wskaźnik na następny ruch.
+ * za każdym razzem, kiedy aktualizuję value, to aktualizuję wskaźnik na następny ruch. Zrobione.
+ * Ale teraz muszę wymyślić sposób, żeby w dość intuicyjny sposób wyrzucać best_move na zewnątrz funkcji.
+ * Jak będzie next move, to tzeba będzie zrobić funkcję do poruszania się w tym kierunku. I "wyjątki", gdy gracz to człowiek i sam podejmuje decyzje.
+ *
  */
 
 
