@@ -21,7 +21,7 @@ class Tree
     Tree* root=0;
 public:
     int alfa = 0;
-    int beta = 0; // optymalnia nan
+    int beta = 0; // optymalnia nan |Legacy variable;
     int value = 0; // to są szansę na wygraną MAX
 
     List <Tree*> sons;
@@ -138,6 +138,16 @@ public:
         if(chosen==MAX)
         {
             max.isHooman=true;
+        }
+        if(chosen==TWO_PLAYERS)
+        {
+            min.isHooman=true;
+            max.isHooman=true;
+        }
+        if (chosen==NO_PLAYERS)
+        {
+            min.isHooman=false;
+            max.isHooman=false;
         }
 
 

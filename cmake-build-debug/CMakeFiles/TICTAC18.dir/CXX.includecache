@@ -29,6 +29,8 @@ List.h
 /home/resolution/CLionProjects/TICTAC18/main.cpp
 iostream
 -
+defines.h
+/home/resolution/CLionProjects/TICTAC18/defines.h
 Tree.h
 /home/resolution/CLionProjects/TICTAC18/Tree.h
 List.h

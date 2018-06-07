@@ -89,6 +89,9 @@ bool minimax(Tree* Node_of_move, int alfa, int beta)
     }
     return Node_of_move->value;
 }
+/*
+ * za każdym razzem, kiedy aktualizuję value, to aktualizuję wskaźnik na następny ruch.
+ */
 
 
 

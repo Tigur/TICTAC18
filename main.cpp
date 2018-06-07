@@ -32,10 +32,10 @@ Tree  game, gamee, gama;
 
     */
 
-    if(game.init(6,6,MIN, EASY)) // jakaś pętla nieskończona jest.
-        cout << "PRAWDA" << endl;
+  //  if(game.init(6,6,MIN, EASY)) // jakaś pętla nieskończona jest.
+      //  cout << "PRAWDA" << endl;
 
- cout <<    game.sons.get(1)->sons.get(1)->max.nowPlaying << endl;
+ //cout <<    game.sons.get(1)->sons.get(1)->max.nowPlaying << endl;
 
 
 /*
@@ -45,13 +45,15 @@ Tree  game, gamee, gama;
  *
  */
 
+    Tree *orientation_pointer=NULL;
     int board_size=0;
     int difficulty=0;
     int choose_your_sign=0;
-    bool with_human=false;
-    bool cpu_vs_cpu= false;
-    bool with_cpu=false;
+    int game_mode=0;
     int signal=0; // for checking the player will
+
+    int answer_menu=0;
+
 
     while(signal!=EXIT)
     {
@@ -59,32 +61,38 @@ Tree  game, gamee, gama;
          * tutaj będzie MENU
          */
 
-        cout << "define the board_size,\n difficulty ( 1. EASY  2. MEDIUM  3. HARD) \n choose your sign (0. circle | 1.cross) \n USE 3 Digits ex. 3 3 1 " << endl;
+        cout << "define the board_size " << endl;
 
         cin >> board_size;
-        cin >> difficulty;
-        cin >> choose_your_sign;
+
 
         cout << "\n Do you want to : \n 1. play vs cpu \n 2. play vs human \n 3. watch cpu vs cpu match" << endl;
 
-        int answer=0;
-        cin >> answer;
+
+        cin >> answer_menu;
 
 
 
 
-        switch(answer)
+        switch(answer_menu)
         {
             case 1:
-                with_cpu=true;
+
+
+                cout << "Set the difficulty (1. EASY | 2. MEDIUM | 3. HARD) and chose your sign (1. CROSS | 2. CIRCLE) with two digits ex. 1 2" << endl;
+
+                cin >> difficulty;
+                cin >> choose_your_sign;
+
+                game_mode=choose_your_sign;
                 break;
 
             case 2:
-                with_human=true;
+                game_mode=TWO_PLAYERS;
                 break;
 
             case 3:
-                cpu_vs_cpu=true;
+                game_mode=NO_PLAYERS;
                 break;
 
             default:
@@ -93,12 +101,13 @@ Tree  game, gamee, gama;
 
         }
 
+        game.init(board_size,board_size,game_mode,difficulty);
+        orientation_pointer=&game;
 
 
-        while(signal!=MENU)
-        {
 
-        }
+
+
     }
 
 
