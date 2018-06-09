@@ -18,20 +18,21 @@
  * 
  *
  */
-Tree* minimax(Tree* Node_of_move, int alfa, int beta)
+Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *Where_to_move)
 {
     /*
-     *
+     * Where_to_move jest zmieniany wewnątrz funkcji na best_move, żeby wskazać na następny ruch z punktu widzenia komputera.
      */
 
     alfa = -10;
     beta = 10;
+    Tree *potential_move=NULL;
+    Tree *best_move=NULL;
 
     for(int i=1;i<Node_of_move->sons.nextIndex;i++)
     {
 
-        Tree *potential_move=NULL;
-        Tree *best_move=NULL;
+
 
         // if pruning
         if (Node_of_move->max.nowPlaying)
@@ -102,6 +103,7 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta)
             }
         }
     }
+    Where_to_move=best_move;
     return Node_of_move;
 }
 /*

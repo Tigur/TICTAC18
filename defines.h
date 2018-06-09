@@ -19,6 +19,12 @@
 #define EXIT 99
 #define MENU 51
 
+//Winners
+#define MAX_WINS 1
+#define MIN_WINS -1
+#define TIE 0
+
+
 
 
 

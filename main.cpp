@@ -104,6 +104,54 @@ Tree  game, gamee, gama;
         game.init(board_size,board_size,game_mode,difficulty);
         orientation_pointer=&game;
 
+        while(orientation_pointer->isFather())
+        {
+            /*
+             * Tutaj jest wymiana ruchów do momentu gdy, ktoś wygra.
+             */
+
+            if(orientation_pointer->max.nowPlaying)
+            {
+
+                if (orientation_pointer->max.isHooman)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+
+            if(orientation_pointer->min.nowPlaying)
+            {
+
+                if (orientation_pointer->min.isHooman)
+                {
+                    /*
+                     * funkcja do wybierania ruchu ?
+                     */
+                }
+                else
+                {
+
+                }
+            }
+        }
+        if(orientation_pointer->value==MAX_WINS)
+        {
+            cout << "Circle WINS ! " << endl;
+
+        }
+        if(orientation_pointer->value==MIN_WINS)
+        {
+            cout << " Cross WINS ! " << endl;
+        }
+        if(orientation_pointer->value==TIE)
+        {
+            cout << " It's a TIE ! " << endl;
+        }
+
 
 
 
@@ -127,5 +175,12 @@ Tree  game, gamee, gama;
  * 3. gracze wymieniają ruchy, AI przewiduje sytuacje, sprawdzamy wygrane
  * 4. gra się kończy, gdy któryś z graczy będzie miał odpowiednią ilość swoich znaków w rzędzie
  *
+ *
+ */
+
+/*
+ * DO zrobienia :
+ * Wymiana ruchów.
+ * Zainicjalizowanie wartości w liściach
  *
  */

@@ -61,7 +61,36 @@ bool FillWithZeros(int n, int m, type **table)
 
 }
 
+Tree* Make_move(Tree* current_move)
+{
+    if(orientation_pointer->max.nowPlaying)
+    {
 
-//bool WorthIt(Tree* decider, int value)
+        if (orientation_pointer->max.isHooman)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
+    if(orientation_pointer->min.nowPlaying)
+    {
+
+        if (orientation_pointer->min.isHooman)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+}
+
+
+
 
 #endif //TICTAC18_MISCFUNC_H

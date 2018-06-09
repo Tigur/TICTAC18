@@ -32,6 +32,7 @@ public:
     int current_depth=0;
 
 
+
 /*
  *
  * Tworzy nowego syna drzewa, uzywa listy.
@@ -44,6 +45,7 @@ public:
         Tree *newTree= new Tree; // THIS to make working
         sons.add(newTree);
         newTree->father=this;
+
 
 
 
@@ -72,6 +74,8 @@ public:
                     if(max.nowPlaying)
                         newTree->board.graphBoard[i][j]=1;
 
+
+
                     return newTree;
                 }
             }
@@ -98,6 +102,7 @@ public:
 
 
 
+
         for (int j = 0; j < n; ++j)
         {
             for (int k = 0; k < m; ++k)
@@ -110,6 +115,8 @@ public:
                     max.nowPlaying=true;
 
                 Tree *newTree = AddIfPossible(n,m,sons.nextIndex);
+
+
 
                 if(depth<max_depth && newTree)
                     newTree->TreeInit(n,m,depth+1, max_depth);
@@ -134,10 +141,12 @@ public:
         if (chosen==MIN)
         {
             min.isHooman=true;
+            max.isHooman=false;
         }
         if(chosen==MAX)
         {
             max.isHooman=true;
+            min.isHooman=false;
         }
         if(chosen==TWO_PLAYERS)
         {

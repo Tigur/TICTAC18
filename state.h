@@ -53,6 +53,141 @@ public:
 
     }
 
+    int check_for_winner(int n, int m, int n_of_move, int m_of_move)
+    {
+
+        int prev_val=5;
+        int sign_counter=0;
+        for(int i=0;i<n;++i) //
+        {
+            if(graphBoard[i][m_of_move]==prev_val && graphBoard[i][m_of_move]!=0)
+            {
+                sign_counter++;
+            }
+            else
+            {
+                sign_counter=0;
+            }
+
+            prev_val=graphBoard[i][m_of_move];
+        }
+
+        if(sign_counter==2)
+            return prev_val;
+
+        sign_counter=0;
+        prev_val=0
+
+        for(int j=0;j<m;++j)
+        {
+            if(graphBoard[n_of_move][j]==prev_val && graphBoard[n_of_move][j]!=0)
+            {
+                sign_counter++;
+            }
+            else
+            {
+                sign_counter=0;
+            }
+
+            prev_val=graphBoard[n_of_move][j];
+
+        }
+        if(sign_counter==2)
+            return prev_val;
+
+        sign_counter=0;
+        prev_val=0;
+        int i=n_of_move,j=m_of_move;
+
+        while(i<n_of_move && j<m_of_move)
+        {
+            if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
+            {
+                sign_counter++;
+            }
+            else
+            {
+                sign_counter=0;
+            }
+
+            prev_val=graphBoard[i][j];
+
+            ++i; ++j;
+        }
+
+        if(sign_counter==2)
+            return prev_val;
+
+        sign_counter=0;
+        prev_val=0;
+        i=n_of_move; j=m_of_move;
+
+        while(i<n && j<m)
+        {
+            if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
+            {
+                sign_counter++;
+            }
+            else
+            {
+                sign_counter=0;
+            }
+
+            prev_val=graphBoard[i][j];
+
+            --i; --j;
+        }
+
+        if(sign_counter==2)
+            return prev_val;
+
+        sign_counter=0;
+        prev_val=0;
+        i=n_of_move; j=m_of_move;
+
+        while(i<n && j<m)
+        {
+            if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
+            {
+                sign_counter++;
+            }
+            else
+            {
+                sign_counter=0;
+            }
+
+            prev_val=graphBoard[i][j];
+
+            ++i; --j;
+        }
+
+        if(sign_counter==2)
+            return prev_val;
+
+        sign_counter=0;
+        prev_val=0;
+        i=n_of_move; j=m_of_move;
+
+        while(i<n && j<m)
+        {
+            if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
+            {
+                sign_counter++;
+            }
+            else
+            {
+                sign_counter=0;
+            }
+
+            prev_val=graphBoard[i][j];
+
+            --i; ++j;
+        }
+
+        if(sign_counter==2)
+            return prev_val;
+
+    }
 };
 
 
