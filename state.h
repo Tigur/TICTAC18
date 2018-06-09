@@ -53,9 +53,9 @@ public:
 
     }
 
-    int check_for_winner(int n, int m, int n_of_move, int m_of_move)
+    int check_for_winner(int n, int m, int n_of_move, int m_of_move, int row)
     {
-
+        row=row-1; // tak będę potrzebował, a nie chce mi się latać po całej funkcji narazie. !!!!!!!!!!!!!!!!!!!!!
         int prev_val=5;
         int sign_counter=0;
         for(int i=0;i<n;++i) //
@@ -72,11 +72,11 @@ public:
             prev_val=graphBoard[i][m_of_move];
         }
 
-        if(sign_counter==2)
+        if(sign_counter>=row)
             return prev_val;
 
         sign_counter=0;
-        prev_val=0
+        prev_val=0;
 
         for(int j=0;j<m;++j)
         {
@@ -92,14 +92,14 @@ public:
             prev_val=graphBoard[n_of_move][j];
 
         }
-        if(sign_counter==2)
+        if(sign_counter>=row)
             return prev_val;
 
         sign_counter=0;
         prev_val=0;
         int i=n_of_move,j=m_of_move;
 
-        while(i<n_of_move && j<m_of_move)
+        while(i<n && j<m)
         {
             if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
             {
@@ -115,14 +115,14 @@ public:
             ++i; ++j;
         }
 
-        if(sign_counter==2)
+        if(sign_counter>=row)
             return prev_val;
 
         sign_counter=0;
         prev_val=0;
         i=n_of_move; j=m_of_move;
 
-        while(i<n && j<m)
+        while(i>0 && j>0)
         {
             if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
             {
@@ -138,14 +138,14 @@ public:
             --i; --j;
         }
 
-        if(sign_counter==2)
+        if(sign_counter>=row)
             return prev_val;
 
         sign_counter=0;
         prev_val=0;
         i=n_of_move; j=m_of_move;
 
-        while(i<n && j<m)
+        while(i<n && j>0)
         {
             if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
             {
@@ -161,14 +161,14 @@ public:
             ++i; --j;
         }
 
-        if(sign_counter==2)
+        if(sign_counter>=row)
             return prev_val;
 
         sign_counter=0;
         prev_val=0;
         i=n_of_move; j=m_of_move;
 
-        while(i<n && j<m)
+        while(i>0 && j<m)
         {
             if(graphBoard[i][j]==prev_val && graphBoard[i][j]!=0)
             {
@@ -184,8 +184,10 @@ public:
             --i; ++j;
         }
 
-        if(sign_counter==2)
+        if(sign_counter>=row)
             return prev_val;
+
+        return 0;
 
     }
 };

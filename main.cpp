@@ -5,7 +5,15 @@
 #include"List.h"
 #include"miscFunc.h"
 
+
+
+
+
 using namespace std;
+
+bool Player::isHooman=0;
+int Player::playerId=0;
+int Tree::in_row=0;
 
 int main()
 {
@@ -45,12 +53,18 @@ Tree  game, gamee, gama;
  *
  */
 
+
+
+    game.init(4,4,1,EASY,3);
+    cout << "poszło ! " << endl;
+
     Tree *orientation_pointer=NULL;
     int board_size=0;
     int difficulty=0;
     int choose_your_sign=0;
     int game_mode=0;
     int signal=0; // for checking the player will
+    int in_row=0;
 
     int answer_menu=0;
 
@@ -79,10 +93,11 @@ Tree  game, gamee, gama;
             case 1:
 
 
-                cout << "Set the difficulty (1. EASY | 2. MEDIUM | 3. HARD) and chose your sign (1. CROSS | 2. CIRCLE) with two digits ex. 1 2" << endl;
+                cout << "Set the difficulty (1. EASY | 2. MEDIUM | 3. HARD) and choose your sign (1. CROSS | 2. CIRCLE) with two digits ex. 1 2\n also choose row amount " << endl;
 
                 cin >> difficulty;
                 cin >> choose_your_sign;
+                cin >> in_row;
 
                 game_mode=choose_your_sign;
                 break;
@@ -101,8 +116,10 @@ Tree  game, gamee, gama;
 
         }
 
-        game.init(board_size,board_size,game_mode,difficulty);
+        game.init(board_size,board_size,game_mode,difficulty,in_row); // TU INIT
         orientation_pointer=&game;
+
+        cout << "INIIIIT POSZED" << endl;
 
         while(orientation_pointer->isFather())
         {

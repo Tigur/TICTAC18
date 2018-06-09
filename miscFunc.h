@@ -60,7 +60,7 @@ bool FillWithZeros(int n, int m, type **table)
 
 
 }
-
+/*
 Tree* Make_move(Tree* current_move)
 {
     if(orientation_pointer->max.nowPlaying)
@@ -90,7 +90,7 @@ Tree* Make_move(Tree* current_move)
     }
 }
 
-
+*/
 
 
 #endif //TICTAC18_MISCFUNC_H

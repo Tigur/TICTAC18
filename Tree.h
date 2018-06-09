@@ -24,6 +24,8 @@ public:
     int beta = 0; // optymalnia nan |Legacy variable;
     int value = 0; // to są szansę na wygraną MAX
 
+    int winner=0;
+    static int in_row;
     List <Tree*> sons;
 
     Player min;
@@ -74,7 +76,8 @@ public:
                     if(max.nowPlaying)
                         newTree->board.graphBoard[i][j]=1;
 
-
+                    if(int winner = newTree->board.check_for_winner(n,m,i,j,3))
+                        newTree->winner=winner;
 
                     return newTree;
                 }
@@ -115,6 +118,10 @@ public:
                     max.nowPlaying=true;
 
                 Tree *newTree = AddIfPossible(n,m,sons.nextIndex);
+                if(newTree && newTree->winner)
+                {
+                    continue;
+                }
 
 
 
@@ -134,7 +141,7 @@ public:
     }
 
 
-    bool init(int n, int m, int chosen, int difficulty)
+    bool init(int n, int m, int chosen, int difficulty, int choosed_in_row)
     {
         min.playerId=MIN;
         max.playerId=MAX;
@@ -158,6 +165,7 @@ public:
             min.isHooman=false;
             max.isHooman=false;
         }
+        this->in_row=choosed_in_row;
 
 
         board.init(n,m);
