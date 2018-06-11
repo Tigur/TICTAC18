@@ -18,7 +18,7 @@
  * 
  *
  */
-Tree* minimax(Tree* Node_of_move, int alfa, int beta /*Tree *Where_to_move*/)
+Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *&Where_to_move)
 {
     /*
      * Where_to_move jest zmieniany wewnątrz funkcji na best_move, żeby wskazać na następny ruch z punktu widzenia komputera.
@@ -31,7 +31,7 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta /*Tree *Where_to_move*/)
      *
      * w innej wersji daj randomise best, jeżeli wszystkie opcje identyczne
      *
-     * NEW PROBLEM : Synowie na 5 poziomie nie mają depth ani
+     *
      */
 
     Tree *potential_move=NULL;
@@ -62,7 +62,7 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta /*Tree *Where_to_move*/)
 
         if(Node_of_move->sons.get(i)->isFather()) // If it's not a leaf
         {
-            potential_move = minimax(Node_of_move->sons.get(i),alfa, beta);
+            potential_move = minimax(Node_of_move->sons.get(i),alfa, beta, Where_to_move);
             int Minmax_result = potential_move->value;
 
             if(Node_of_move->max.nowPlaying )
@@ -113,8 +113,8 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta /*Tree *Where_to_move*/)
             }
         }
     }
-   // Where_to_move=best_move;
-    return best_move;
+    Where_to_move=best_move;
+    return Node_of_move;
 }
 /*
  * za każdym razzem, kiedy aktualizuję value, to aktualizuję wskaźnik na następny ruch. Zrobione.

@@ -79,13 +79,15 @@ Tree  game, gamee, gama;
 
         cout << "define the board_size " << endl;
 
-        cin >> board_size;
+     //   cin >> board_size;
+        board_size=3;
 
 
         cout << "\n Do you want to : \n 1. play vs cpu \n 2. play vs human \n 3. watch cpu vs cpu match" << endl;
 
 
-        cin >> answer_menu;
+       // cin >> answer_menu;
+        answer_menu=1;
 
 
 
@@ -97,10 +99,14 @@ Tree  game, gamee, gama;
 
                 cout << "Set the difficulty (1. EASY | 2. MEDIUM | 3. HARD) and choose your sign (1. CROSS | 2. CIRCLE) with two digits ex. 1 2\n also choose row amount " << endl;
 
-                cin >> difficulty;
-                difficulty=difficulty+3;
-                cin >> choose_your_sign;
-                cin >> in_row;
+               // cin >> difficulty;
+               // difficulty=difficulty+3;
+              //  cin >> choose_your_sign;
+               // cin >> in_row;
+
+                difficulty=4;
+                choose_your_sign=1;
+                in_row=3;
 
                 game_mode=choose_your_sign;
                 break;
@@ -152,7 +158,7 @@ Tree  game, gamee, gama;
                 else
                 {
                     orientation_pointer->doForesight(board_size,board_size,difficulty);
-                    next_move=minimax(orientation_pointer,-10,10);
+                    minimax(orientation_pointer,-10,10, next_move);
                     orientation_pointer=next_move;
 
 
@@ -181,7 +187,7 @@ Tree  game, gamee, gama;
                 else
                 {
                     orientation_pointer->doForesight(board_size,board_size,difficulty);
-                    next_move=minimax(orientation_pointer,-10,10);
+                    minimax(orientation_pointer,-10,10, next_move);
                     orientation_pointer=next_move;
                 }
             }

@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/resolution/CLionProjects/TICTAC18/Last_Move.h
+
 /home/resolution/CLionProjects/TICTAC18/List.h
 iostream
 -
@@ -23,6 +25,8 @@ state.h
 /home/resolution/CLionProjects/TICTAC18/state.h
 List.h
 /home/resolution/CLionProjects/TICTAC18/List.h
+Last_Move.h
+/home/resolution/CLionProjects/TICTAC18/Last_Move.h
 
 /home/resolution/CLionProjects/TICTAC18/defines.h
 
@@ -37,6 +41,14 @@ List.h
 /home/resolution/CLionProjects/TICTAC18/List.h
 miscFunc.h
 /home/resolution/CLionProjects/TICTAC18/miscFunc.h
+minimax.h
+/home/resolution/CLionProjects/TICTAC18/minimax.h
+
+/home/resolution/CLionProjects/TICTAC18/minimax.h
+Tree.h
+/home/resolution/CLionProjects/TICTAC18/Tree.h
+List.h
+/home/resolution/CLionProjects/TICTAC18/List.h
 
 /home/resolution/CLionProjects/TICTAC18/miscFunc.h
 iostream
@@ -45,6 +57,8 @@ List.h
 /home/resolution/CLionProjects/TICTAC18/List.h
 Tree.h
 /home/resolution/CLionProjects/TICTAC18/Tree.h
+state.h
+/home/resolution/CLionProjects/TICTAC18/state.h
 
 /home/resolution/CLionProjects/TICTAC18/state.h
 Player.h

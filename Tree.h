@@ -116,7 +116,7 @@ public:
         long long int nm= n*m;
         int move_num=0;
 
-        current_depth=depth;
+
 
 
         if(winner)
@@ -136,6 +136,12 @@ public:
 
 
                 Tree *newTree = AddIfPossible(n,m,sons.nextIndex);
+
+                if(newTree)
+                {
+                    newTree->current_depth=depth+1;
+                }
+
                 if(newTree && newTree->winner)
                 {
                     continue;
@@ -196,6 +202,7 @@ public:
             TreeInit(n, m, this->current_depth, max_depth);
 
         }
+        Continue_Foresight(n,m,max_depth);
         //minimax outside
 
     }
