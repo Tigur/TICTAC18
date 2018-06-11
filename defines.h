@@ -11,7 +11,7 @@
 #define NO_PLAYERS 11
 
 // DIFFICULTIES
-#define EASY 1
+#define EASY 4
 #define MEDIUM 2
 #define HARD 3
 

@@ -5,6 +5,7 @@
 #include<iostream>
 #include"List.h"
 #include"Tree.h"
+#include "state.h"
 
 #ifndef TICTAC18_MISCFUNC_H
 #define TICTAC18_MISCFUNC_H
@@ -91,6 +92,8 @@ Tree* Make_move(Tree* current_move)
 }
 
 */
+
+
 
 
 #endif //TICTAC18_MISCFUNC_H

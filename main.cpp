@@ -4,6 +4,7 @@
 #include"Tree.h"
 #include"List.h"
 #include"miscFunc.h"
+#include "minimax.h"
 
 
 
@@ -55,10 +56,11 @@ Tree  game, gamee, gama;
 
 
 
-    game.init(4,4,1,EASY,3);
-    cout << "poszło ! " << endl;
+    game.init(3,3,1,EASY,3);
+  //  cout << "poszło ! " << endl;
 
     Tree *orientation_pointer=NULL;
+    Tree *next_move=NULL;
     int board_size=0;
     int difficulty=0;
     int choose_your_sign=0;
@@ -96,6 +98,7 @@ Tree  game, gamee, gama;
                 cout << "Set the difficulty (1. EASY | 2. MEDIUM | 3. HARD) and choose your sign (1. CROSS | 2. CIRCLE) with two digits ex. 1 2\n also choose row amount " << endl;
 
                 cin >> difficulty;
+                difficulty=difficulty+3;
                 cin >> choose_your_sign;
                 cin >> in_row;
 
@@ -132,10 +135,26 @@ Tree  game, gamee, gama;
 
                 if (orientation_pointer->max.isHooman)
                 {
+                    /*
+                     * funkcja dla ludzi
+                     */
+
+                    int n_of_move=0;
+                    int m_of_move=0;
+
+                    cout << "Tell me your move hooman : (Pick width num and height num like this: 1 2 ) " << endl;
+                    cin >> n_of_move;
+                    cin >> m_of_move;
+
+                    orientation_pointer=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
 
                 }
                 else
                 {
+                    orientation_pointer->doForesight(board_size,board_size,difficulty);
+                    next_move=minimax(orientation_pointer,-10,10);
+                    orientation_pointer=next_move;
+
 
                 }
             }
@@ -147,11 +166,23 @@ Tree  game, gamee, gama;
                 {
                     /*
                      * funkcja do wybierania ruchu ?
+                     *
+                     * tutaj jeszcze wyświetlanie na nowo planszy... I plansza
                      */
+                    int n_of_move=0;
+                    int m_of_move=0;
+
+                    cout << "Tell me your move hooman : (Pick width num and height num like this: 1 2 ) " << endl;
+                    cin >> n_of_move;
+                    cin >> m_of_move;
+
+                    orientation_pointer=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
                 }
                 else
                 {
-
+                    orientation_pointer->doForesight(board_size,board_size,difficulty);
+                    next_move=minimax(orientation_pointer,-10,10);
+                    orientation_pointer=next_move;
                 }
             }
         }
@@ -198,6 +229,11 @@ Tree  game, gamee, gama;
 /*
  * DO zrobienia :
  * Wymiana ruchów.
- * Zainicjalizowanie wartości w liściach
+ * Zainicjalizowanie wartości w liściach chyba zrobione.
+ *
+ * Wielkie niewiadome :
+ * Czy algorytm minimax działa ? Robimy standardową grę 3x3 i na niej testuję wszystko. :P
+ * Czyli musimy miec do tego narzędzia do poruszania się. 
+ *
  *
  */

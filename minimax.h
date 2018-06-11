@@ -18,14 +18,22 @@
  * 
  *
  */
-Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *Where_to_move)
+Tree* minimax(Tree* Node_of_move, int alfa, int beta /*Tree *Where_to_move*/)
 {
     /*
      * Where_to_move jest zmieniany wewnątrz funkcji na best_move, żeby wskazać na następny ruch z punktu widzenia komputera.
      */
 
-    alfa = -10;
-    beta = 10;
+
+    /*
+     * PROBLEM DIAGNOSE :
+     * wszystkie opcje są równe, dlatego "best option nie instnieje.
+     *
+     * w innej wersji daj randomise best, jeżeli wszystkie opcje identyczne
+     *
+     * NEW PROBLEM : Synowie na 5 poziomie nie mają depth ani
+     */
+
     Tree *potential_move=NULL;
     Tree *best_move=NULL;
 
@@ -52,14 +60,14 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *Where_to_move)
         }
 
 
-        if(Node_of_move->sons.get(i).isFather()) // If it's not a leaf
+        if(Node_of_move->sons.get(i)->isFather()) // If it's not a leaf
         {
-            potential_move = minimax(Node_of_move->sons.get(i));
+            potential_move = minimax(Node_of_move->sons.get(i),alfa, beta);
             int Minmax_result = potential_move->value;
 
             if(Node_of_move->max.nowPlaying )
             {
-                if(Node_of_move->value<Minmax_result)
+                if(Node_of_move->value<=Minmax_result)
                 {
                     Node_of_move->value = Minmax_result;
                     alfa=Minmax_result;
@@ -68,11 +76,11 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *Where_to_move)
             }
             if(Node_of_move->min.nowPlaying )
             {
-                if(Node_of_move->value>Minmax_result)
+                if(Node_of_move->value>=Minmax_result)
                 {
                     Node_of_move->value = Minmax_result;
                     beta=Minmax_result;
-                    best_move=potential_move;
+                    best_move=potential_move; // tutaj tak naprawdę przekazuję wskaźnik do tego ostatniego, a nie do następnego. Powienienem zwracać node of move
 
 
                 }
@@ -81,30 +89,32 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *Where_to_move)
         }
         else  // If it IS a leaf
         {
-            if(Node_of_move->min.nowPlaying)
+            if(Node_of_move->max.nowPlaying)
             {
-                if(Node_of_move->sons.get(i)->value < Node_of_move->value)
+                if(Node_of_move->sons.get(i)->value <= Node_of_move->value)
                 {
                     Node_of_move->value = Node_of_move->sons.get(i)->value;
                     best_move=Node_of_move->sons.get(i);
                 }
+
 
 
             }
 
             if(Node_of_move->min.nowPlaying)
             {
-                if(Node_of_move->sons.get(i)->value >  Node_of_move->value)
+                if(Node_of_move->sons.get(i)->value >=  Node_of_move->value)
                 {
                     Node_of_move->value = Node_of_move->sons.get(i)->value;
                     best_move=Node_of_move->sons.get(i);
                 }
+
 
             }
         }
     }
-    Where_to_move=best_move;
-    return Node_of_move;
+   // Where_to_move=best_move;
+    return best_move;
 }
 /*
  * za każdym razzem, kiedy aktualizuję value, to aktualizuję wskaźnik na następny ruch. Zrobione.
