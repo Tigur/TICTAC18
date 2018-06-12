@@ -12,7 +12,7 @@
 
 using namespace std;
 
-bool Player::isHooman=0;
+//bool Player::isHooman=0;
 int Player::playerId=0;
 int Tree::in_row=0;
 
@@ -56,8 +56,10 @@ Tree  game, gamee, gama;
 
 
 
-    game.init(3,3,1,EASY,3);
+   // game.init(3,3,1,EASY,3);
   //  cout << "poszło ! " << endl;
+
+
 
     Tree *orientation_pointer=NULL;
     Tree *next_move=NULL;
@@ -80,7 +82,7 @@ Tree  game, gamee, gama;
         cout << "define the board_size " << endl;
 
      //   cin >> board_size;
-        board_size=3;
+        board_size=4;
 
 
         cout << "\n Do you want to : \n 1. play vs cpu \n 2. play vs human \n 3. watch cpu vs cpu match" << endl;
@@ -128,10 +130,15 @@ Tree  game, gamee, gama;
         game.init(board_size,board_size,game_mode,difficulty,in_row); // TU INIT
         orientation_pointer=&game;
 
+      game.board.display(board_size,board_size);
+
         cout << "INIIIIT POSZED" << endl;
 
         while(orientation_pointer->isFather())
         {
+
+
+
             /*
              * Tutaj jest wymiana ruchów do momentu gdy, ktoś wygra.
              */
@@ -163,9 +170,11 @@ Tree  game, gamee, gama;
 
 
                 }
+
+                orientation_pointer->board.display(board_size,board_size);
             }
 
-            if(orientation_pointer->min.nowPlaying)
+           else if(orientation_pointer->min.nowPlaying)
             {
 
                 if (orientation_pointer->min.isHooman)
@@ -190,8 +199,16 @@ Tree  game, gamee, gama;
                     minimax(orientation_pointer,-10,10, next_move);
                     orientation_pointer=next_move;
                 }
+
+                orientation_pointer->board.display(board_size,board_size);
+
+
             }
         }
+
+
+
+
         if(orientation_pointer->value==MAX_WINS)
         {
             cout << "Circle WINS ! " << endl;

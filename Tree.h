@@ -81,7 +81,14 @@ public:
                     if(int winner = newTree->board.check_for_winner(n,m,i,j,in_row))
                     {
                         newTree->winner = winner;
-
+                        if(winner==MIN)
+                        {
+                            newTree->value=-1;
+                        }
+                        if(winner==MAX)
+                        {
+                            newTree->value=1;
+                        }
 
                     }
 
@@ -130,7 +137,10 @@ public:
             {
 
                 if(depth%2)
-                    min.nowPlaying=true;
+                {
+                    min.nowPlaying = true;
+
+                }
                 else
                     max.nowPlaying=true;
 
@@ -180,8 +190,13 @@ public:
             }
             else
             {
-                TreeInit(n,m,current_depth,max_depth);
+
             }
+        }
+
+        if(!this->isFather())
+        {
+            TreeInit(n,m,current_depth,max_depth);          // JUST A TEST IF
         }
 
         return true;

@@ -12,7 +12,7 @@ class Player
 {
 
 public:
-    static bool isHooman ; // can't be static
+     bool isHooman ; // can't be static
     static int playerId; // MIN OR MAX
     bool nowPlaying=0;
 };

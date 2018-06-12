@@ -192,6 +192,43 @@ public:
     }
 
 
+
+    bool display( int n, int m)
+    {
+        for(int i=0; i<n;++i)
+        {
+            cout << endl;
+            for (int j=0; j<m;++j)
+            {
+                cout << " ";
+                switch(graphBoard[i][j])
+                {
+                    case 0:
+                        cout << ".";
+                        break;
+
+                    case 1:
+                        cout << "x";
+                        break;
+
+
+                    case 2:
+                        cout << "o";
+                        break;
+
+                }
+            }
+        }
+
+        cout << "\n\n";
+
+        return true;
+    }
+
+
+
+
+
 };
 
 

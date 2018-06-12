@@ -5,7 +5,8 @@
 #include<iostream>
 #include"List.h"
 #include"Tree.h"
-#include "state.h"
+
+//#include "state.h"
 
 #ifndef TICTAC18_MISCFUNC_H
 #define TICTAC18_MISCFUNC_H
@@ -61,37 +62,6 @@ bool FillWithZeros(int n, int m, type **table)
 
 
 }
-/*
-Tree* Make_move(Tree* current_move)
-{
-    if(orientation_pointer->max.nowPlaying)
-    {
-
-        if (orientation_pointer->max.isHooman)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
-
-    if(orientation_pointer->min.nowPlaying)
-    {
-
-        if (orientation_pointer->min.isHooman)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
-}
-
-*/
 
 
 

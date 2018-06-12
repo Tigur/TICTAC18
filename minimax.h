@@ -91,7 +91,7 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *&Where_to_move)
         {
             if(Node_of_move->max.nowPlaying)
             {
-                if(Node_of_move->sons.get(i)->value <= Node_of_move->value)
+                if(Node_of_move->sons.get(i)->value >= Node_of_move->value)
                 {
                     Node_of_move->value = Node_of_move->sons.get(i)->value;
                     best_move=Node_of_move->sons.get(i);
@@ -103,7 +103,7 @@ Tree* minimax(Tree* Node_of_move, int alfa, int beta, Tree *&Where_to_move)
 
             if(Node_of_move->min.nowPlaying)
             {
-                if(Node_of_move->sons.get(i)->value >=  Node_of_move->value)
+                if(Node_of_move->sons.get(i)->value <=  Node_of_move->value)
                 {
                     Node_of_move->value = Node_of_move->sons.get(i)->value;
                     best_move=Node_of_move->sons.get(i);
