@@ -90,15 +90,18 @@ public:
                         newTree->last_move.exist=true;
                         newTree->last_move.isCircle=true;
                     }
+                    if(i==1 && j==1 && current_depth==7)
+                    newTree->board.display(3,3);
 
-                    if(int winner = newTree->board.check_for_winner(n,m,i,j,in_row))
+
+                    if(int winnerr = newTree->board.check_for_winner(n,m,i,j,in_row))
                     {
-                        newTree->winner = winner;
-                        if(winner==MIN)
+                        newTree->winner = winnerr;
+                        if(winnerr==MIN)
                         {
                             newTree->value=-1;
                         }
-                        if(winner==MAX)
+                        if(winnerr==MAX)
                         {
                             newTree->value=1;
                         }

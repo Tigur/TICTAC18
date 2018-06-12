@@ -120,7 +120,7 @@ public:
 
         sign_counter=0;
         prev_val=0;
-        i=n_of_move; j=m_of_move;
+
 
         while(i>0 && j>0)
         {
@@ -166,7 +166,7 @@ public:
 
         sign_counter=0;
         prev_val=0;
-        i=n_of_move; j=m_of_move;
+
 
         while(i>0 && j<m)
         {
