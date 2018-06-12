@@ -6,7 +6,9 @@
 #include"miscFunc.h"
 #include "minimax.h"
 
-
+/*
+ * sprawdzę to dla wprowadzania danych. hooman vs cpu
+ */
 
 
 
@@ -82,7 +84,7 @@ Tree  game, gamee, gama;
         cout << "define the board_size " << endl;
 
      //   cin >> board_size;
-        board_size=4;
+        board_size=3;
 
 
         cout << "\n Do you want to : \n 1. play vs cpu \n 2. play vs human \n 3. watch cpu vs cpu match" << endl;
@@ -159,7 +161,16 @@ Tree  game, gamee, gama;
                     cin >> n_of_move;
                     cin >> m_of_move;
 
-                    orientation_pointer=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
+                    next_move=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
+
+                    while (!next_move)
+                    {
+                        cout << "Try again" << endl;
+                        cin >> n_of_move;
+                        cin >> m_of_move;
+                        next_move=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
+                    }
+                    orientation_pointer=next_move;
 
                 }
                 else
@@ -191,7 +202,18 @@ Tree  game, gamee, gama;
                     cin >> n_of_move;
                     cin >> m_of_move;
 
-                    orientation_pointer=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
+
+
+                    next_move=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
+
+                    while (!next_move)
+                    {
+                        cout << "Try again" << endl;
+                        cin >> n_of_move;
+                        cin >> m_of_move;
+                        next_move=orientation_pointer->hooman_move(board_size,board_size,n_of_move,m_of_move);
+                    }
+                    orientation_pointer=next_move;
                 }
                 else
                 {

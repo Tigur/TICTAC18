@@ -74,9 +74,22 @@ public:
 
 
                     if(min.nowPlaying)
-                        newTree->board.graphBoard[i][j] =1;
+                    {
+                        newTree->board.graphBoard[i][j] = 1;
+                        newTree->last_move.n=i;
+                        newTree->last_move.m=j;
+                        newTree->last_move.exist=true;
+                        newTree->last_move.isCircle=false;
+
+                    }
                     if(max.nowPlaying)
-                        newTree->board.graphBoard[i][j]=2;
+                    {
+                        newTree->board.graphBoard[i][j] = 2;
+                        newTree->last_move.n=i;
+                        newTree->last_move.m=j;
+                        newTree->last_move.exist=true;
+                        newTree->last_move.isCircle=true;
+                    }
 
                     if(int winner = newTree->board.check_for_winner(n,m,i,j,in_row))
                     {
@@ -142,7 +155,19 @@ public:
 
                 }
                 else
-                    max.nowPlaying=true;
+                {
+                    max.nowPlaying = true;
+                }
+                if(min.playerId==MIN)
+                {
+                    min.isHooman=true;
+                }
+                if(max.playerId==MAX)
+                {
+                    max.isHooman=true;
+                }
+
+
 
 
                 Tree *newTree = AddIfPossible(n,m,sons.nextIndex);
@@ -225,8 +250,8 @@ public:
 
     bool init(int n, int m, int chosen, int difficulty, int choosed_in_row)
     {
-        min.playerId=MIN;
-        max.playerId=MAX;
+        min.playerId=chosen;
+        max.playerId=chosen;
         if (chosen==MIN)
         {
             min.isHooman=true;
@@ -273,6 +298,9 @@ public:
 
     Tree* hooman_move(int n, int m, int n_of_move, int m_of_move)
     {
+        n_of_move--;
+        m_of_move--;
+
         if(board.graphBoard[n_of_move][m_of_move])
         {
             cout <<"this space is already taken !" << endl;
@@ -286,10 +314,10 @@ public:
 
         for (int i=1; i<sons.nextIndex; ++i) // czy 1 to właściwy pomysł ?
         {
-            if(sons.get(i)->last_move.n==n_of_move && sons.get(i)->last_move.m==m_of_move)
-            {
+            if (sons.get(i)->last_move.n == n_of_move && sons.get(i)->last_move.m == m_of_move) {
                 return sons.get(i);
             }
+        }
 
             cout << "I found nothing " << endl;
             return 0;
@@ -297,7 +325,7 @@ public:
 
 
 
-        }
+
 
 
     }

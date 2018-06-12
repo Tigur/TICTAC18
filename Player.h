@@ -12,8 +12,13 @@ class Player
 {
 
 public:
-     bool isHooman ; // can't be static
+
+     bool isHooman=false ; // can't be static
     static int playerId; // MIN OR MAX
     bool nowPlaying=0;
+
+
+
+
 };
 #endif //TICTAC18_PLAYER_H

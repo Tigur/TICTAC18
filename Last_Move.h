@@ -8,7 +8,7 @@
 class Last_Move
 {
 public:
-    int n=0; int m=0;
+    int n=-1; int m=-1;
     bool exist=false;
     bool isCircle=false;
 };
